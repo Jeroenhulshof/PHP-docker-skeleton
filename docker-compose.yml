@@ -1,15 +1,16 @@
 version: '3'
 
 services:
-  phpfpm:
+  app:
     build:
       context: ./
-      dockerfile: ./config/phpfpm/Dockerfile
+      dockerfile: ./config/app/Dockerfile
     volumes_from:
       - nginx
     ports:
       - "9000:9000"
-    container_name: phpfpm
+      - "5173:5173"
+    container_name: app
   nginx:
     build:
       context: ./
@@ -33,6 +34,3 @@ services:
     ports:
       - "3306:3306"
     container_name: mariadb
-networks:
-  phpapp:
-    driver: bridge

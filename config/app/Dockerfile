@@ -3,6 +3,8 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 
 RUN apk add --no-cache --update nginx redis npm mysql-client;
 
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
 RUN chmod +x /usr/local/bin/install-php-extensions && \
     IPE_GD_WITHOUTAVIF=1 install-php-extensions pdo_mysql pcntl exif zip bcmath
 
