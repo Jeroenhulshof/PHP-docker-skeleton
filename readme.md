@@ -8,7 +8,7 @@ Network: `phpapp`
 
 ### Create /src folder
 
-This docker compose file mounts the /src folder to /usr/share/nginx/html within nginx. 
+This docker compose file mounts the hosts /src folder to nginx /usr/share/nginx/html folder. The /src folder should be used as root folder for your PHP application. 
 
 ```
 mkdir /src
