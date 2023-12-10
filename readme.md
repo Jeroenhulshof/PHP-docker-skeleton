@@ -1,7 +1,7 @@
 # Docker skeleton for PHP applications
 
 ## Installs
-Containers: `nginx` `php-fpm 8.2 alpine` `mariadb` `redis`
+Containers: `nginx` `php-fpm 8.2 alpine` `mariadb` `redis`\
 Network: `phpapp`
 
 ## Installation
