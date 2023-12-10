@@ -1,14 +1,14 @@
 # Docker skeleton for PHP applications
 
 ## Installs
-Containers: `nginx` `php-fpm 8.2 alpine` `mariadb` `redis`
+Containers: `nginx` `php-fpm 8.2 alpine` `mariadb` `redis`\
 Network: `phpapp`
 
 ## Installation
 
 ### Create /src folder
 
-This docker compose file mounts the /src folder to /usr/share/nginx/html within nginx. 
+This docker compose file mounts the hosts /src folder to nginx /usr/share/nginx/html folder. The /src folder should be used as root folder for your PHP application. 
 
 ```
 mkdir /src
