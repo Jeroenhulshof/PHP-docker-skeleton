@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  phpfpm:
+    build:
+      context: ./
+      dockerfile: ./config/phpfpm/Dockerfile
+    volumes_from:
+      - nginx
+    ports:
+      - "9000:9000"
+    container_name: phpfpm
+  nginx:
+    build:
+      context: ./
+      dockerfile: ./config/nginx/Dockerfile
+    ports: 
+      - "80:80"
+    volumes:
+        - "./src:/usr/share/nginx/html"
+    container_name: nginx
+  redis:
+    image: "redis:latest"
+    ports:
+     - "6379:6379"
+    container_name: redis
+  mariadb:
+    image: "mariadb:latest"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    container_name: mariadb
+networks:
+  phpapp:
+    driver: bridge
